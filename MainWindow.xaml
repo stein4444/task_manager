@@ -1,0 +1,50 @@
+﻿<Window x:Class="systemProg_hw1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:systemProg_hw1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.14*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.14*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="Path" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="40" Width="570" Margin="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20"></TextBox>
+                <Button Grid.Column="1" Height="40" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="5" Click="Button_Click_2">Submit</Button>
+            </Grid>
+        </StackPanel>
+        <DataGrid Name="grid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Procces" Binding="{Binding ProcessName}" />
+                <DataGridTextColumn Header="Total Processor Time" Binding="{Binding TotalProcessorTime}" />
+                <DataGridTextColumn Header="IsResponding" Binding="{Binding Responding}" />
+                <DataGridTextColumn Header="Priority" Binding="{Binding PriorityClass}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DockPanel Grid.Row="2" >
+            <Grid Height="50" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="3" Height="35" Width="100" FontSize="20" Click="Button_Click">Kill</Button>
+                <Button Grid.Column="1" Width="100" FontSize="20" Height="35" VerticalAlignment="Center" Click="Button_Click_1">Details</Button>
+                <ComboBox Grid.Column="3" Name="Seconds" FontSize="25" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Height="40"  VerticalAlignment="Bottom" />
+            </Grid>
+
+        </DockPanel>
+    </Grid>
+</Window>
